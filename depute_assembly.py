@@ -222,39 +222,3 @@ def indiv(b, nom, prenom):
                                         if PersInfo[u'nom']== nom:
                                             bucket.append(acteurInfoDicts)
     return bucket
-
-def getRefs(indiv, choixNom, choixPreNom):
-
-    bucket = []
-    for mandats in indiv:
-        for mandat in mandats[u'mandats'][u'mandat']:
-            pitcher = {}
-            if mandat[u'typeOrgane'] == u'ASSEMBLEE':
-#				pitcher[u'organeRef'] = mandat[u'organes'][u'organeRef']
-                pitcher[u'acteurRef'] = mandat[u'acteurRef']
-                pitcher[u'nom'] = mandats[u'etatCivil'][u'ident'][u'nom']
-                pitcher[u'prenom'] = mandats[u'etatCivil'][u'ident'][u'prenom']
-                if pitcher not in bucket:
-                    bucket.append(pitcher)
-    return bucket
-
-def votesIndivs(a, refs):
-    bucket = {}
-    for scrutins in Scrutins_XIV.data().values():
-        for scrutinList in scrutins.values():
-            for scrutin in scrutinList:
-                for groupe in scrutin[u'ventilationVotes'][u'organe'][u'groupes'][u'groupe']:
-                    for intention, votes in groupe[u'vote'][u'decompteNominatif'].iteritems():
-                        if type(votes) is dict:
-                            if type(votes[u'votant']) is list:
-                                for votants in votes[u'votant']:
-                                    for ref in refs:
-                                        if votants[u'acteurRef'] == ref[u'acteurRef']:
-                                            bucket.append({u'libelle': scrutin[u'objet'][u'libelle'], u'position' : intention, u'positionMajoritaire': groupe[u'vote'][u'positionMajoritaire']})
-                            elif type(votes[u'votant']) is dict:
-                                if votes[u'votant'][u'acteurRef'] == ref[u'acteurRef']:
-
-                                    bucket.append({u'libelle': scrutin[u'objet'][u'libelle'], u'position' : intention, u'positionMajoritaire': groupe[u'vote'][u'positionMajoritaire']})
-                        else:
-                            pass
-    return bucket
