@@ -23,7 +23,14 @@ lxmlParce.py_ permet de récuperer des informations de Scrutins_XIV.lxml
 
 .. _https://github.com/deputes/deputes.github.io/blob/master/lxmlParce.py 
 
-json2Html.py_ permet de récuperer les informations de Scrutins_XIV.json. Les fichiers HTML précédemment cités ont étés construits avec ce code.
+j2p.py_ permet de récuperer les informations de Scrutins_XIV.json. Les fichiers HTML précédemment cités ont étés construits avec ce code. Permet aussi l'écriture de fichiers intermédiaires pour réduire le runtime.
+
+*InOutDep.py* permet de faire tourner *deputes_assembly.py*, qui permet de faire une première analyse superficielle des données:
+
+- nombre de votes pours/contres/abstentions/nonVotants (ou tous) pour chaque individu, et l'intitulé des lois pours/contres etc.
+- le classement des personnes votant le plus / le moins en accord avec leur groupe parlementaire (+ détail)
+
+Les prochains commits porterons sur (députés par lieu), (lois par types de votes).
 
 .. _https://github.com/deputes/deputes.github.io/blob/master/json2Html.py
 
