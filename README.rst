@@ -30,7 +30,7 @@ j2p.py_ permet de récuperer les informations de Scrutins_XIV.json. Les fichiers
 - nombre de votes pours/contres/abstentions/nonVotants (ou tous) pour chaque individu, et l'intitulé des lois pours/contres etc.
 - le classement des personnes votant le plus / le moins en accord avec leur groupe parlementaire (+ détail)
 
-Les prochains commits porterons sur (députés par lieu), (lois par types de votes).
+Les prochains commits porteront sur (députés par lieu), (lois par types de votes).
 
 .. _https://github.com/deputes/deputes.github.io/blob/master/json2Html.py
 
